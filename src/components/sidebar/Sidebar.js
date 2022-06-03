@@ -53,7 +53,7 @@ const Sidebar = () => {
         <li>
         <NotificationsIcon className='icon' />
           <Link to="/formtest" className="item">
-          <span>Notifications</span>
+          <span>formcrud_test_2</span>
           </Link>
         </li>
         <li>
