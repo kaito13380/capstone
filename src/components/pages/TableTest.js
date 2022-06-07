@@ -65,8 +65,8 @@ const columns = [
     label: 'status',
     minWidth: 100,
     align: 'left',
-    // format: (value) =>  value.isValid.toString(),
-   
+    format: (value) => value.toString(),
+
   },
   {
     id: 'token',
@@ -90,7 +90,7 @@ const columns = [
 export default function StickyHeadTable({ users, selectUser }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  console.log(users)
+  // console.log(users)
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -121,19 +121,21 @@ export default function StickyHeadTable({ users, selectUser }) {
             {users
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
+                // console.log(row)
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                     {columns.map((column) => {
                       const value = row[column.id];
+                      console.log(value)
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
+                          {column.format && typeof value === 'number' 
+                          //column.format??? chỗ này khi là status nó sẽ nhảy vào cái điều kiện sau dấu : lúc đầu value không thì sẽ không hiển thị, phải toString()
                             ? column.format(value)
-                            : value}
-
+                            : value ? value.toString() : " "}
                         </TableCell>
 
-                        
+
                       );
                     })}
                     <TableCell><button onClick={() => selectUser(row.userID)}>Update</button></TableCell>

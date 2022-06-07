@@ -15,24 +15,24 @@ export default function FormCRUD_1() {
   const [roleID, setRoleID] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
-  const [fullname, setfullname] = useState(""); 
+  const [fullname, setfullname] = useState("");
   const [resultID, setResultID] = useState("");
-  const[status,setStatus]= useState("");
+  const [status, setStatus] = useState("");
   // const[testID,setTestID]=useState("");
   const [email, setEmail] = useState("");
-  const[token,setToken]= useState("");
-  const [userID,setID]=useState('null')
+  const [token, setToken] = useState("");
+  const [userID, setID] = useState('null')
 
   useEffect(() => {
     getUsers();
   }, [])
   function getUsers() {
-    fetch("https://fptquiz.conveyor.cloud/api/Users",{
-      headers:{
-        'Accept':'text/plain',
-        'Content-Type':'application/json; charset=utf-8 ',
-   
-        
+    fetch("https://fptquiz.conveyor.cloud/api/Users", {
+      headers: {
+        'Accept': 'text/plain',
+        'Content-Type': 'application/json; charset=utf-8 ',
+
+
       },
     }).then((result) => {
       result.json().then((resp) => {
@@ -51,7 +51,7 @@ export default function FormCRUD_1() {
         setID(resp[0].userID)
       })
     })
-    
+
   }
 
   // function deleteUser(id) {
@@ -81,37 +81,35 @@ export default function FormCRUD_1() {
   //     })
   //   })
   // }
-  function selectUser(userID)
-  {
-    let item=users[userID-1];
+  function selectUser(userID) {
+    let item = users[userID - 1];
     setUserName(item.userName);
     setPassword(item.password);
-        setEmail(item.email);
-        setRoleID(item.roleID);
-        setPhoneNumber(item.phoneNumber);
-        setAddress(item.address);
-        setfullname(item.fullname);
-        setStatus(item.status);
-        setToken(item.token);
-        // setTestID(item.testID);
-        setID(item.userID)
+    setEmail(item.email);
+    setRoleID(item.roleID);
+    setPhoneNumber(item.phoneNumber);
+    setAddress(item.address);
+    setfullname(item.fullname);
+    setStatus(item.status);
+    setToken(item.token);
+    // setTestID(item.testID);
+    setID(item.userID)
   }
-  function UpdateStatus(){
+  function UpdateStatus() {
     const data = !Boolean(status);
     status = (data.toString());
   }
-  function updateUser()
-  {
-    let item={userID,userName,password,email,roleID,phoneNumber,address,fullname,resultID,status,token}
+  function updateUser() {
+    let item = { userID, userName, password, email, roleID, phoneNumber, address, fullname, resultID, status, token }
     // console.warn("item",item)
     fetch(`https://fptquiz.conveyor.cloud/api/Users/${userID}`, {
       method: 'PUT',
-      headers:{
-        'Accept':'accept: */*',
-        'Content-Type':'application/json',
+      headers: {
+        'Accept': 'accept: */*',
+        'Content-Type': 'application/json',
       },
-      body:JSON.stringify(item)
-    }).then( (result) =>{
+      body: JSON.stringify(item)
+    }).then((result) => {
       // console.log(result);
       getUsers();
     });
@@ -124,67 +122,62 @@ export default function FormCRUD_1() {
 
 
       <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <Grid container spacing={1}>
-    <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto", float:'left'}}>
-    <Grid xs={12} item>
-    <a>userName</a>
-    <input type="text" placeholder='UserName' value={userName} onChange={(e)=>{setUserName(e.target.value)}} /> <br /><br />
-    </Grid>
-    <Grid xs={12} sm={8} item>
-    <a>email</a>
-    <input type="text" placeholder='email' value={email} onChange={(e)=>{setEmail(e.target.value)}} /> <br /><br />
-    </Grid>
-    <Grid xs={12} sm={8} item>
-    <a>password</a>
-      <input type="text" placeholder='password' value={password} onChange={(e)=>{setPassword(e.target.value)}} /> <br /><br />
-      </Grid>
-      <Grid xs={12} sm={8} item>
-      <a>roleID</a>
-      <input type="text" placeholder='roleID' value={roleID} onChange={(e)=>{setRoleID(e.target.value)}} /> <br /><br />
-      </Grid>
-      <Grid xs={12} sm={8} item>
-      <a>phoneNumber</a>
-      <input type="text" placeholder='phoneNumber' value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} /> <br /><br />
-      </Grid>
-      <Grid xs={12} sm={8} item>
-    
-      <a>address</a>
-      <input type="text" placeholder='address' value={address} onChange={(e)=>{setAddress(e.target.value)}} /> <br /><br />
-      </Grid>
-      <Grid xs={12} sm={8} item>
-      <a>fullname</a>
-      <input type="text" placeholder='fullname' value={fullname} onChange={(e)=>{setfullname(e.target.value)}} /> <br /><br />
-      </Grid>
-      <Grid xs={12} sm={8} item>
-      <a>resultID</a>
-      <input type="text" placeholder='resultID' value={resultID} onChange={(e)=>{setResultID(e.target.value)}} /> <br /><br />
-      </Grid>
-      <Grid xs={12} sm={8} item>
-      <a>token</a>
-      <input type="text" placeholder='token' value={token} onChange={(e)=>{setToken(e.target.value)}} /> <br /><br />
-      </Grid>
-      {/* <Grid xs={12} sm={6}>
+      
+        <Grid style={{marginTop: "95px"}} container spacing={1}>
+          <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto", float: 'left' }}>
+            <Grid xs={12} item>
+              <a>userName</a>
+              <input type="text" placeholder='UserName' value={userName} onChange={(e) => { setUserName(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+              <a>email</a>
+              <input type="text" placeholder='email' value={email} onChange={(e) => { setEmail(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+              <a>password</a>
+              <input type="text" placeholder='password' value={password} onChange={(e) => { setPassword(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+              <a>roleID</a>
+              <input type="text" placeholder='roleID' value={roleID} onChange={(e) => { setRoleID(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+              <a>phoneNumber</a>
+              <input type="text" placeholder='phoneNumber' value={phoneNumber} onChange={(e) => { setPhoneNumber(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+
+              <a>address</a>
+              <input type="text" placeholder='address' value={address} onChange={(e) => { setAddress(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+              <a>fullname</a>
+              <input type="text" placeholder='fullname' value={fullname} onChange={(e) => { setfullname(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+              <a>resultID</a>
+              <input type="text" placeholder='resultID' value={resultID} onChange={(e) => { setResultID(e.target.value) }} /> <br /><br />
+            </Grid>
+            <Grid xs={12} sm={8} item>
+              <a>token</a>
+              <input type="text" placeholder='token' value={token} onChange={(e) => { setToken(e.target.value) }} /> <br /><br />
+            </Grid>
+            {/* <Grid xs={12} sm={6}>
       <a>testID</a>
       <input type="text" placeholder='testID' value={testID} onChange={(e)=>{setTestID(e.target.value)}} /> <br /><br />
       </Grid> */}
-      <a>status</a>
-      <input
-      placeholder='status'
-        type="checkbox"
-        checked={status}
-        onChange={(e) => setStatus(e.target.checked)}
-      />
-           <br></br>
-      <button onClick={updateUser} >Update User</button>  
-      
-      </Card>
-      </Grid>
+            <a>status</a>
+            <input
+              placeholder='status'
+              type="checkbox"
+              checked={status}
+              onChange={(e) => setStatus(e.target.checked)}
+            />
+            <br></br>
+            <button onClick={updateUser} >Update User</button>
+
+          </Card>
+        </Grid>
 
 
       </div>
