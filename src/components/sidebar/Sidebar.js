@@ -46,15 +46,15 @@ const Sidebar = () => {
         </li>
         <li>
           <GroupIcon className='icon' />
-          <Link to="/formcrud" className="item">
+          <Link to="/formtest" className="item">
           <span>User_Form</span>
         </Link>
         </li>
         <li>
         <NotificationsIcon className='icon' />
-          <Link to="/formtest" className="item">
-          <span>formcrud_test_2</span>
-          </Link>
+          
+          <span>Notifications</span>
+          
         </li>
         <li>
           <PsychologyIcon className='icon' />
