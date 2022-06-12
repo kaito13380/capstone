@@ -8,16 +8,13 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { removeUserSession } from './Utils/Common';
+
 const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css' />
 
 
 const Sidebar = (props) => {
   const [isActive, setIsActive] = useState(false);
-  const handleLogout = () => {
-    removeUserSession();
-    props.history.push('/login');
-  }
+
   return (
     // <div className="sidebar">
     //   <div className="sidebarWrapper">
@@ -76,12 +73,7 @@ const Sidebar = (props) => {
         </li>
         <li>
           <ExitToAppIcon className='icon' />
-          <div>
-          Welcome {localStorage.getItem('token')}! < br /><br />
-          <input type="button"
-              value="Logout"
-              onClick={handleLogout}/>
-    </div>
+  
         </li>
       </ul>
     </div>
