@@ -9,7 +9,7 @@ function PublicRoute({ component: Component, ...rest }) {
           {...rest}
           render={props => {
               return !getToken() ? <Component {...props} />
-                  : <Redirect to={{ pathname: '/dashboard' }} />
+                  : <Redirect to={{ pathname: '/' }} />
           }}
     />
   )

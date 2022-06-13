@@ -6,6 +6,7 @@ import Navbar from './components/navbar/Navbar';
 import FormCRUD from './components/pages/FormCRUD';
 import Sidebar from './components/sidebar/Sidebar';
 import FormCRUD_1 from './components/pages/FormCRUD_1';
+import Login from './components/pages/Login';
 
 
 const styles = {
@@ -24,6 +25,7 @@ function App() {
             <Route path='/home' element={<Home />}></Route>
             <Route path='/formcrud' element={<FormCRUD />}>FormCRUD</Route>
             <Route path='/formtest' element={<FormCRUD_1/>}></Route>
+            <Route path='/login' element={<Login/>}></Route>
           </Routes>
         </div>
       </div>
