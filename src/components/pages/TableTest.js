@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 
 const columns = [
   { id: 'userID', label: 'UserID', minWidth: 100 },
-  { id: 'userName', label: 'userName', minWidth: 100 },
+  { id: 'userName', label: 'User Name', minWidth: 100 },
   {
     id: 'password',
     label: 'password ',
@@ -68,13 +68,13 @@ const columns = [
     format: (value) => value.toString(),
 
   },
-  {
-    id: 'token',
-    label: 'token',
-    minWidth: 50,
-    align: 'left',
-    format: (value) => value.toFixed(2),
-  },
+  // {
+  //   id: 'token',
+  //   label: 'token',
+  //   minWidth: 50,
+  //   align: 'left',
+  //   format: (value) => value.toFixed(2),
+  // },
   {
     id: 'update',
     label: '',

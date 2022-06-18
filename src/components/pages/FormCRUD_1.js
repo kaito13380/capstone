@@ -25,7 +25,6 @@ export default function FormCRUD_1() {
 
   useEffect(() => {
     getUsers();
-    console.log("abc")
   }, [])
   function getUsers() {
     fetch("https://fptquiz.conveyor.cloud/api/Users", {
